@@ -1,0 +1,22 @@
+{
+  "logBuild": true,
+  "locales": [
+    "en",
+    "de"
+  ],
+  "defaultLocale": "de",
+  "defaultNS": "core",
+  "pages": {
+    "*": [
+      "core",
+      "core/i18n",
+      "core/Header"
+    ],
+    "/products": [
+      "product/pages/catalog"
+    ],
+    "/products/[productId]": [
+      "product/pages/details"
+    ]
+  }
+}
