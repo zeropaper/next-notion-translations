@@ -17,6 +17,22 @@ export default function App(props: AppProps) {
         theme={{
           /** Put your mantine theme override here */
           colorScheme: 'light',
+          primaryColor: 'green', // set to 'primary' and setup the 'primary' color in the colors object to customize the primary color
+          primaryShade: 5,
+          colors: {
+            primary: [
+              '#cef187',
+              '#ff0000',
+              '#ff0000',
+              '#a8d956',
+              '#ff0000',
+              '#ff0000',
+              '#ff0000',
+              '#ff0000',
+              '#ff0000',
+              '#ff0000'
+            ]
+          }
         }}
       >
         <Component {...pageProps} />
