@@ -1,4 +1,9 @@
 [
   "switchToLightMode",
-  "switchToDarkMode"
+  "switchToDarkMode",
+  "Home",
+  "Blog",
+  "Products",
+  "About",
+  "Contact"
 ]
