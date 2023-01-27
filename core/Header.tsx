@@ -1,8 +1,9 @@
-import { useState } from 'react';
 import { createStyles, Header as MHeader, Container, Group, Burger, Paper, Transition, Box } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import ChangeLanguage from "./ChangeLanguage";
 import useTranslation from 'next-translate/useTranslation';
+import Link from './Link';
+import { useRouter } from 'next/router';
 
 
 const HEADER_HEIGHT = 60;
@@ -89,24 +90,21 @@ const defaultLinks = [
 ];
 
 export default function Header({ links = defaultLinks }: HeaderResponsiveProps) {
-  const [opened, { toggle, close }] = useDisclosure(false);
-  const [active, setActive] = useState(links[0].link);
+  const [opened, { toggle }] = useDisclosure(false);
   const { classes, cx } = useStyles();
   const { t } = useTranslation('core/Header')
+  const router = useRouter()
 
   const items = links.map((link) => (
-    <a
+    <Link
       key={link.label}
       href={link.link}
-      className={cx(classes.link, { [classes.linkActive]: active === link.link })}
-      onClick={(event) => {
-        event.preventDefault();
-        setActive(link.link);
-        close();
-      }}
+      className={cx(classes.link, {
+        [classes.linkActive]: router.asPath === link.link
+      })}
     >
       {t(link.label)}
-    </a>
+    </Link>
   ));
 
   return (
